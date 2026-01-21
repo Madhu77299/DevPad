@@ -1,0 +1,238 @@
+/* ================= TAILWIND STYLE THEME ================= */
+:root {
+  /* Slate backgrounds */
+  --bg-main: #020617;        /* slate-950 */
+  --bg-card: #0f172a;        /* slate-900 */
+  --bg-soft: #020617;
+
+  /* Borders */
+  --border: #1e293b;         /* slate-800 */
+
+  /* Text */
+  --text-main: #e5e7eb;      /* gray-200 */
+  --text-muted: #94a3b8;     /* slate-400 */
+
+  /* Brand (Sky) */
+  --brand: #38bdf8;          /* sky-400 */
+  --brand-strong: #0ea5e9;   /* sky-500 */
+
+  /* Status */
+  --ok: #22c55e;             /* emerald-500 */
+  --warn: #eab308;           /* amber-500 */
+  --err: #ef4444;            /* rose-500 */
+
+  --radius: 14px;
+  --gap: 16px;
+}
+
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: url("logo.jpg") center / cover no-repeat;
+}
+
+.title {
+  font-size: 18px;
+}
+
+/* ================= MAIN LAYOUT ================= */
+main {
+  max-width: 1500px;
+  margin: auto;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  main {
+    grid-template-columns: 280px 1fr 340px;
+  }
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.panel {
+  padding: 16px;
+}
+
+/* ================= TEXT ================= */
+h2, h3 {
+  margin-bottom: 10px;
+}
+
+.muted {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ================= LAYOUT HELPERS ================= */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--brand);
+  color: #020617;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--brand-strong);
+  transform: translateY(-1px);
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border);
+}
+
+.btn.ok { background: var(--ok); }
+.btn.warn { background: var(--warn); color: #422006; }
+.btn.err { background: var(--err); }
+
+/* ================= INPUTS ================= */
+textarea,
+.text {
+  width: 100%;
+  background: var(--bg-soft);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  resize: vertical;
+}
+
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+
+/* ================= TABS ================= */
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.tab.active {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+/* ================= EDITORS ================= */
+.editor-wrap {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.editor,
+iframe.preview {
+  width: 100%;
+  height: 340px;
+  background: #020617;
+  border: none;
+}
+
+/* ================= OUTPUT ================= */
+.out {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 140px;
+  font-size: 13px;
+  overflow-y: auto;
+}
+
+/* ================= KBD ================= */
+.kbd {
+  font-family: monospace;
+  background: #020617;
+  padding: 2px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
